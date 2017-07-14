@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info>
+    <id>twofactor_backup_codes</id>
+    <name>Two factor backup codes</name>
+    <description>Two-factor auth backup codes provider</description>
+    <licence>AGPL</licence>
+    <author>Semih Serhat Karakaya</author>
+    <version>0.0.4</version>
+    <namespace>TwoFactorBackupCodes</namespace>
+    <category>security</category>
+    <types>
+        <prelogin/>
+        <authentication/>
+    </types>
+
+    <two-factor-providers>
+        <provider>OCA\TwoFactorBackupCodes\Provider\BackupProvider</provider>
+    </two-factor-providers>
+
+    <dependencies>
+        <owncloud min-version="9.1" max-version="10.0" />
+    </dependencies>
+
+    <settings>
+        <personal>OCA\TwoFactorBackupCodes\Settings\PersonalPanel</personal>
+    </settings>
+</info>
