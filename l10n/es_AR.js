@@ -1,0 +1,12 @@
+OC.L10N.register(
+    "twofactor_backup_codes",
+    {
+    "You can generate second factor backup codes below." : "Puedes generar un segundo factor de códigos de resguardo a continuación.",
+    "Generate codes" : "Generar códigos",
+    "You have {{remaining}} backup codes left can be used." : "Te quedan {{remaining}} códigos de resguardo para ser utilizados.",
+    "Regenerate codes" : "Regenerar Códigos",
+    "Backup Codes" : "Resguardar Códigos",
+    "Authenticate with a backup code" : "Autenticarse con un código de resguardo",
+    "Second-factor backup codes" : "Códigos de resguardo de segundo factor"
+},
+"nplurals=2; plural=(n != 1);");
