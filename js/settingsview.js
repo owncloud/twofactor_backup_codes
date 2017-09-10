@@ -7,6 +7,7 @@
     OC.Settings.TwoFactorBackup = OC.Settings.TwoFactorBackup || {};
 
     var TEMPLATE = '<div>'
+            + '<span>' + t('twofactor_backup_codes', 'Backup codes let you access your account if your other factors are not available.') + '</span><br>'
             + '{{#unless remaining}}'
             + '	   <span>' + t('twofactor_backup_codes', 'You can generate second factor backup codes below.') + '</span><br>'
             + '	   <button id="backup-generate-backup-codes" class="button">' + t('twofactor_backup_codes', 'Generate codes') + '</button>'
@@ -17,6 +18,7 @@
             +          '<li class="backup-code">{{this}}</li>'
             +          '{{/each}}'
             +          '</ul>'
+            +          '<span>' + t('twofactor_backup_codes', 'Keep them somewhere accessible, like your wallet. Each code can be used only once.') + '</span><br>'
             + '    {{else}}'
             + '	       <span>' + t('twofactor_backup_codes', 'You have {{remaining}} backup codes left can be used.') + '</span><br>'
             + '    {{/if}}'
