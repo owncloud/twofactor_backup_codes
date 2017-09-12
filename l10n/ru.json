@@ -1,6 +1,8 @@
 { "translations": {
+    "Backup codes let you access your account if your other factors are not available." : "Коды резервных копий позволяют получить доступ к вашей учетной записи, если ваши другие варианты недоступны.",
     "You can generate second factor backup codes below." : "Вы можете создать резервные копии кодов второго фактора ниже.",
     "Generate codes" : "Сгенерировать коды",
+    "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Держите их где-нибудь доступными, как ваш кошелек. Каждый код может использоваться только один раз.",
     "You have {{remaining}} backup codes left can be used." : "У вас осталось {{remaining}} резервных копий кодов, которые можно использовать.",
     "Regenerate codes" : "Пересоздать коды",
     "Backup Codes" : "Резервная копия кодов",
