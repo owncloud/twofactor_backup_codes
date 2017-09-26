@@ -1,6 +1,7 @@
 { "translations": {
     "You can generate second factor backup codes below." : "Tutaj możesz wygenerować kody zapasowe uwierzytelnienia dwuskładnikowego.",
     "Generate codes" : "Generuj kody zapasowe",
+    "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Trzymaj je gdzieś w miejscu łatwo dostępnym. Każdy kod może być wykorzystany tylko raz.",
     "You have {{remaining}} backup codes left can be used." : "Posiadasz {{remaining}} kodów zapasowych które mogą być użyte.",
     "Regenerate codes" : "Ponownie generuj kody zapasowe",
     "Backup Codes" : "Kody zapasowe",
