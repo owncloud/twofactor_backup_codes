@@ -1,8 +1,10 @@
 OC.L10N.register(
     "twofactor_backup_codes",
     {
+    "Backup codes let you access your account if your other factors are not available." : "Reservekoder gir deg tilgang til kontoen din når innlogging på andre måter ikke er tilgengelig.",
     "You can generate second factor backup codes below." : "Du kan generere to faktor sikkerhetskoder nedenfor",
     "Generate codes" : "Generer koder",
+    "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Legg dem et sted du har tilgang til, f.eks. i lommeboken. Hver kode kan kun brukes en gang.",
     "You have {{remaining}} backup codes left can be used." : "Du har igjen {{remaining}} koder som kan brukes.",
     "Regenerate codes" : "Lag nye koder",
     "Backup Codes" : "Sikkerhetskoder",
