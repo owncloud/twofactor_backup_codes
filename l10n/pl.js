@@ -1,6 +1,7 @@
 OC.L10N.register(
     "twofactor_backup_codes",
     {
+    "Backup codes let you access your account if your other factors are not available." : "Kody zapasowe pozwalają uzyskać dostęp do konta, jeśli inne możliwości nie są dostępne.",
     "You can generate second factor backup codes below." : "Tutaj możesz wygenerować kody zapasowe uwierzytelnienia dwuskładnikowego.",
     "Generate codes" : "Generuj kody zapasowe",
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Trzymaj je gdzieś w miejscu łatwo dostępnym. Każdy kod może być wykorzystany tylko raz.",
