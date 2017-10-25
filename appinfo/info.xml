@@ -12,7 +12,7 @@
         <prelogin/>
         <authentication/>
     </types>
-
+    <screenshot>https://raw.githubusercontent.com/owncloud/twofactor_backup_codes/717991de4a7d4ff634add9897867eeeed7662c7b/screenshots/verify.png</screenshot>
     <two-factor-providers>
         <provider>OCA\TwoFactorBackupCodes\Provider\BackupProvider</provider>
     </two-factor-providers>
