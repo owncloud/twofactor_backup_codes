@@ -25,6 +25,9 @@ script:
   - cd apps/twofactor_backup_codes/tests
   - ../../../lib/composer/phpunit/phpunit/phpunit --configuration phpunit.xml
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 matrix:
   include:
     - php: 7.0
