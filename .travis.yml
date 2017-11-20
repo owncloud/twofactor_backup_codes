@@ -17,6 +17,8 @@ branches:
 install:
   - wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh
   - bash ./before_install.sh twofactor_backup_codes $CORE_BRANCH $DB
+  - make
+  - make appstore
   - cd ../core
   - php occ app:enable twofactor_backup_codes
 
@@ -36,3 +38,6 @@ matrix:
     - php: 7.1
       env: DB=pgsql
   fast_finish: true
+
+after_failure:
+    - cat ../../data/owncloud.log
