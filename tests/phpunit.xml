@@ -3,4 +3,18 @@
     <testsuite name='ownCloud - Two-Factor Backup Codes App Tests'>
         <directory>../tests</directory>
     </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../../twofactor_backup_codes</directory>
+            <exclude>
+                <directory suffix=".php">../../twofactor_backup_codes/l10n</directory>
+                <directory suffix=".php">../../twofactor_backup_codes/lists</directory>
+                <directory suffix=".php">../../twofactor_backup_codes/tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <!-- and this is where your report will be written -->
+        <log type="coverage-clover" target="./clover.xml"/>
+    </logging>
 </phpunit>
