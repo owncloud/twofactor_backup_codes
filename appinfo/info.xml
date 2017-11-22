@@ -3,6 +3,7 @@
     <id>twofactor_backup_codes</id>
     <name>Two factor backup codes</name>
     <description>Two-factor auth backup codes provider</description>
+    <summary>Backup codes let you access your account if your other factors are not available.</summary>
     <licence>AGPL</licence>
     <author>Semih Serhat Karakaya</author>
     <version>0.0.4</version>
