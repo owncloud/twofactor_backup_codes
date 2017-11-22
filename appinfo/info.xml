@@ -13,6 +13,7 @@
         <prelogin/>
         <authentication/>
     </types>
+    <screenshot>https://raw.githubusercontent.com/owncloud/twofactor_backup_codes/104e03d3b2a7d58e6d03c5fb28db281200a0ef84/screenshots/owncloud-twofactor-backup-codes.jpg</screenshot>
     <screenshot>https://raw.githubusercontent.com/owncloud/twofactor_backup_codes/717991de4a7d4ff634add9897867eeeed7662c7b/screenshots/verify.png</screenshot>
     <two-factor-providers>
         <provider>OCA\TwoFactorBackupCodes\Provider\BackupProvider</provider>
@@ -25,4 +26,8 @@
     <settings>
         <personal>OCA\TwoFactorBackupCodes\Settings\PersonalPanel</personal>
     </settings>
+
+    <website>https://github.com/owncloud/twofactor_backup_codes/</website>
+    <bugs>https://github.com/owncloud/twofactor_backup_codes/issues</bugs>
+    <repository type="git">https://github.com/owncloud/twofactor_backup_codes.git</repository>
 </info>
