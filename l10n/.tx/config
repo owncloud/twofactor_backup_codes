@@ -7,3 +7,4 @@ file_filter = <lang>/twofactor_backup_codes.po
 source_file = templates/twofactor_backup_codes.pot
 source_lang = en
 type = PO
+
