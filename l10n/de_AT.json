@@ -1,0 +1,12 @@
+{ "translations": {
+    "Backup codes let you access your account if your other factors are not available." : "Der Backup-Code erlaubt dir Zugriff auf dein Konto, wenn deine anderen Faktoren nicht verfügbar sind.",
+    "You can generate second factor backup codes below." : "Nachstehend kannst du Zwei-Faktoren-Backup-Codes generieren.",
+    "Generate codes" : "Generiere Codes",
+    "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Bewahre sie gut erreichbar, z.B. in deiner Geldbörse auf. Jeder Code kann nur einmal benützt werden.",
+    "You have {{remaining}} backup codes left can be used." : "Du hast noch {{verbleibende}} verwendbare Backup-Codes übrig",
+    "Regenerate codes" : "Erneuere Codes.",
+    "Backup Codes" : "Backup-Codes",
+    "Authenticate with a backup code" : "Authentifiziere dich mit einem Backup-Code.",
+    "Second-factor backup codes" : "Zwei-Faktor-Backup-Codes"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
