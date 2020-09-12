@@ -41,7 +41,7 @@ class BackupCodesProviderTest extends TestCase {
     private $appManager;
     /** @var BackupProvider */
     private $provider;
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
         $this->appName = "twofactor_backup_codes";
         $this->backupService = $this->createMock(Backup::class);
