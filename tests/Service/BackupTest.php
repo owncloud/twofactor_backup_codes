@@ -37,7 +37,7 @@ class BackupCodeStorageTest extends TestCase {
     /** @var Backup */
     private $backupService;
 
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
         $this->mapper = $this->createMock(BackupCodeMapper::class);
         $this->random = $this->createMock(ISecureRandom::class);

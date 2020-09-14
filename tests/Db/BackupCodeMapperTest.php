@@ -51,13 +51,13 @@ class BackupCodeMapperTest extends TestCase {
         return $dbEntity;
     }
 
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
         $this->db = \OC::$server->getDatabaseConnection();
         $this->mapper = \OC::$server->query(BackupCodeMapper::class);
         $this->resetDB();
     }
-    protected function tearDown() {
+    protected function tearDown(): void {
         parent::tearDown();
         $this->resetDB();
     }
