@@ -70,4 +70,16 @@ class SettingsController extends Controller {
         ];
     }
 
+    /**
+     * @NoAdminRequired
+     * @return array
+     */
+    public function removeBackupCodes() {
+        $user = $this->userSession->getUser();
+        $this->backup->deleteBackupCodesByUser($user);
+        return [
+            'remaining' => 0
+        ];
+    }
+
 }

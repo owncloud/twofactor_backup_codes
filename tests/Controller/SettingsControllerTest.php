@@ -58,6 +58,7 @@ class SettingsControllerTest extends TestCase {
         ];
         $this->assertEquals($expected, $this->controller->state());
     }
+
     public function testGenerateBackupCodes() {
         $user = $this->getMockBuilder(IUser::class)->getMock();
         $codes = ['code1', 'code2'];
@@ -80,5 +81,19 @@ class SettingsControllerTest extends TestCase {
             'codes' => $codes,
         ];
         $this->assertEquals($expected, $this->controller->generateBackupCodes());
+    }
+
+    public function testRemoveBackupCodes() {
+        $user = $this->getMockBuilder(IUser::class)->getMock();
+        $this->userSession->expects($this->once())
+            ->method('getUser')
+            ->will($this->returnValue($user));
+        $this->backup->expects($this->once())
+            ->method('deleteBackupCodesByUser')
+            ->with($user);
+        $expected = [
+            'remaining' => 0
+        ];
+        $this->assertEquals($expected, $this->controller->removeBackupCodes());
     }
 }

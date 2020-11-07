@@ -45,7 +45,7 @@ class BackupProvider implements IProvider {
      * @param string $appName
      * @param Backup $backup
      * @param IL10N $l10n
-     * @param AppManager $appManage
+     * @param AppManager $appManager
      */
     public function __construct($appName, Backup $backup, IL10N $l10n, AppManager $appManager) {
         $this->appName = $appName;

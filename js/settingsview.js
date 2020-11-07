@@ -23,6 +23,7 @@
             + '	       <span>' + t('twofactor_backup_codes', 'You have {{remaining}} backup codes left can be used.') + '</span><br>'
             + '    {{/if}}'
             + '	   <button id="backup-generate-backup-codes" class="button">' + t('twofactor_backup_codes', 'Regenerate codes') + '</button>'
+            + '	   <button id="backup-remove-backup-codes" class="button">' + t('twofactor_backup_codes', 'Remove codes') + '</button>'
             + '{{/unless}}'
             + '</div>';
 
@@ -45,7 +46,8 @@
         _codes: undefined,
 
         events: {
-            'click #backup-generate-backup-codes': '_clickGenerateBackupCodes'
+            'click #backup-generate-backup-codes': '_clickGenerateBackupCodes',
+            'click #backup-remove-backup-codes': '_clickRemoveBackupCodes'
         },
 
         /**
@@ -88,16 +90,23 @@
             }.bind(this));
         },
         _clickGenerateBackupCodes: function () {
-            // Hide old codes
-            this._remaining = 0;
-            this.render();
-            $('#generate-backup-codes').addClass('icon-loading-small');
+            $('#backup-generate-backup-codes').addClass('icon-loading-small');
             var url = OC.generateUrl('/apps/twofactor_backup_codes/settings/generateBackupCodes');
             $.ajax(url, {
                 method: 'POST'
             }).done(function(data) {
                 this._remaining = data.remaining;
                 this._codes = data.codes;
+                this.render();
+            }.bind(this));
+        },
+        _clickRemoveBackupCodes: function () {
+            $('#backup-remove-backup-codes').addClass('icon-loading-small');
+            var url = OC.generateUrl('/apps/twofactor_backup_codes/settings/removeBackupCodes');
+            $.ajax(url, {
+                method: 'DELETE'
+            }).done(function() {
+                this._remaining = 0;
                 this.render();
             }.bind(this));
         },
