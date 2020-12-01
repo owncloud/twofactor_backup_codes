@@ -30,5 +30,10 @@ return [
             'url' => '/settings/generateBackupCodes',
             'verb' => 'POST'
         ],
+        [
+            'name' => 'settings#removeBackupCodes',
+            'url' => '/settings/removeBackupCodes',
+            'verb' => 'DELETE'
+        ],
     ]
 ];
