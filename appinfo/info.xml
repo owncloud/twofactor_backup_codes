@@ -6,7 +6,7 @@
     <summary>Backup codes let you access your account if your other factors are not available.</summary>
     <licence>AGPL</licence>
     <author>Semih Serhat Karakaya</author>
-    <version>0.0.5</version>
+    <version>0.1.0</version>
     <namespace>TwoFactorBackupCodes</namespace>
     <category>security</category>
     <types>
