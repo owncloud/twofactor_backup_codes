@@ -5,6 +5,7 @@
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Ruajini diku ku mund t’i merrni lehtë, fjala vjen në portofolin tuaj. Çdo kod mund të përdoret vetëm një herë.",
     "You have {{remaining}} backup codes left can be used." : "Keni ende {{remaining}} kode kopjeruajtje që mund të përdorni.",
     "Regenerate codes" : "Riprodho kode",
+    "Remove codes" : "Hiqi kodet",
     "Backup Codes" : "Kode Kopjeruajtjesh",
     "Authenticate with a backup code" : "Kryej mirëfilltësim me një kod kopjeruajtjeje",
     "Second-factor backup codes" : "Kode kopjeruajtjesh me faktor të dytë"
