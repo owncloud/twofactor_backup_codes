@@ -7,6 +7,7 @@ OC.L10N.register(
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "เก็บรหัสของคุณไว้เช่นที่กระเป๋าสตางค์ของคุณ รหัสแต่ละรหัสสามารถใช้งานได้เพียงครั้งเดียว",
     "You have {{remaining}} backup codes left can be used." : "คุณมีรหัสสำรองเหลือแค่ {{remaining}}  รหัสที่สามารถใช้ได้",
     "Regenerate codes" : "สร้างรหัสใหม่",
+    "Remove codes" : "ลบรหัส",
     "Backup Codes" : "รหัสสำรองข้อมูล",
     "Authenticate with a backup code" : "ตรวจสอบสิทธิ์ด้วยรหัสสำรอง",
     "Second-factor backup codes" : "รหัสสำรองที่สอง"
