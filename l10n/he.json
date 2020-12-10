@@ -5,6 +5,7 @@
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "יש לשמור עליהם במקום נגיש, כמו הארנק שלך. ניתן להשתמש בכל קוד פעם אחת בלבד.",
     "You have {{remaining}} backup codes left can be used." : "נותרו ברשותך {{remaining}} קודי גיבוי לשימוש.",
     "Regenerate codes" : "יצירת קודים מחדש",
+    "Remove codes" : "הסרת קודים",
     "Backup Codes" : "קודי גיבוי",
     "Authenticate with a backup code" : "אימות על בסיס קוד גיבוי",
     "Second-factor backup codes" : "קודי גיבוי מסדר שני"
