@@ -5,6 +5,7 @@
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Mantenha-os acessíveis, como sua carteira. Cada código pode ser usado apenas uma vez.",
     "You have {{remaining}} backup codes left can be used." : "Os códigos de backup {{remaining}} podem ser usados.",
     "Regenerate codes" : "Regenerar códigos",
+    "Remove codes" : "Remover códigos",
     "Backup Codes" : "Códigos de Backup",
     "Authenticate with a backup code" : "Autenticar com um código de backup",
     "Second-factor backup codes" : "Códigos de backup de segundo fator"
