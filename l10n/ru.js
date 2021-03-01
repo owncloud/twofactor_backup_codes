@@ -7,6 +7,7 @@ OC.L10N.register(
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Держите их где-нибудь доступными, как ваш кошелек. Каждый код может использоваться только один раз.",
     "You have {{remaining}} backup codes left can be used." : "У вас осталось {{remaining}} резервных копий кодов, которые можно использовать.",
     "Regenerate codes" : "Пересоздать коды",
+    "Remove codes" : "Удалить коды",
     "Backup Codes" : "Резервная копия кодов",
     "Authenticate with a backup code" : "Аутентифицируйтесь с помощью резервной копии кода",
     "Second-factor backup codes" : "Резервная копия кодов второго фактора"
