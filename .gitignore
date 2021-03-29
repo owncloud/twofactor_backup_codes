@@ -1,0 +1,8 @@
+build/
+
+# Tests - auto-generated files
+.phpunit.result.cache
+tests/output
+
+# SonarCloud scanner
+.scannerwork

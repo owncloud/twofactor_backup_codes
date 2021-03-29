@@ -21,6 +21,9 @@ endif
 endif
 endif
 
+# bin file definitions
+PHPUNIT=php -d zend.enable_gc=0  "$(PWD)/../../lib/composer/bin/phpunit"
+PHPUNITDBG=phpdbg -qrr -d memory_limit=4096M -d zend.enable_gc=0 "$(PWD)/../../lib/composer/bin/phpunit"
 
 all: build
 
@@ -105,25 +108,15 @@ else
 endif
 	tar -czf $(appstore_package_name).tar.gz -C $(appstore_package_name)/../ $(app_name)
 
-# Command for running JS and PHP tests. Works for package.json files in the js/
-# and root directory. If phpunit is not installed systemwide, a copy is fetched
-# from the internet
-.PHONY: test
-test:
-ifneq (,$(wildcard $(CURDIR)/js/package.json))
-	cd js && $(npm) run test
-endif
-ifneq (,$(wildcard $(CURDIR)/package.json))
-	$(npm) run test
-endif
+.PHONY: test-php-unit
+test-php-unit: ## Run php unit tests
+test-php-unit:
+	$(PHPUNIT) --configuration ./phpunit.xml --testsuite unit
 
-ifneq (,$(wildcard $(CURDIR)/../../lib/composer/bin/phpunit))
-	$(CURDIR)/../../lib/composer/bin/phpunit -c phpunit.xml --coverage-clover build/php-unit.clover
-	$(CURDIR)/../../lib/composer/bin/phpunit -c phpunit.integration.xml --coverage-clover build/php-unit.clover
-else
-	phpunit -c phpunit.xml --coverage-clover build/php-unit.clover
-	phpunit -c phpunit.integration.xml --coverage-clover build/php-unit.clover
-endif
+.PHONY: test-php-unit-dbg
+test-php-unit-dbg: ## Run php unit tests using phpdbg
+test-php-unit-dbg:
+	$(PHPUNITDBG) --configuration ./phpunit.xml --testsuite unit
 
 # watch out for changes and rebuild
 .PHONY: watch
