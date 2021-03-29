@@ -88,7 +88,7 @@ class BackupCodeMapperTest extends TestCase {
         $this->assertEquals($entity2->getId(), $dbCodes[1]->getId());
     }
     public function testDeleteCodes() {
-        $entity1 = $this->createTestCodeEntry($this->testUID, '1');
+        $this->createTestCodeEntry($this->testUID, '1');
         $user = $this->getMockBuilder(IUser::class)->getMock();
         $user->expects($this->any())
             ->method('getUID')
