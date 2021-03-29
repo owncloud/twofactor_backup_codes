@@ -66,7 +66,7 @@ class Backup implements IBackup {
             $dbBackupCode = $this->backupCodeMapper->getBackupCode($user, $code);
             $this->backupCodeMapper->delete($dbBackupCode);
         } catch (DoesNotExistException $ex) {
-
+			// It is OK to delete a backup code that does not exist
         }
     }
 
