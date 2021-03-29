@@ -24,6 +24,7 @@ endif
 # bin file definitions
 PHPUNIT=php -d zend.enable_gc=0  "$(PWD)/../../lib/composer/bin/phpunit"
 PHPUNITDBG=phpdbg -qrr -d memory_limit=4096M -d zend.enable_gc=0 "$(PWD)/../../lib/composer/bin/phpunit"
+PHP_CS_FIXER=php -d zend.enable_gc=0 vendor-bin/owncloud-codestyle/vendor/bin/php-cs-fixer
 
 all: build
 
@@ -120,6 +121,16 @@ test-php-unit-dbg: ## Run php unit tests using phpdbg
 test-php-unit-dbg: vendor
 	$(PHPUNITDBG) --configuration ./phpunit.xml --testsuite unit
 
+.PHONY: test-php-style
+test-php-style: ## Run php-cs-fixer and check owncloud code-style
+test-php-style: vendor-bin/owncloud-codestyle/vendor
+	$(PHP_CS_FIXER) fix -v --diff --diff-format udiff --allow-risky yes --dry-run
+
+.PHONY: test-php-style-fix
+test-php-style-fix: ## Run php-cs-fixer and fix code style issues
+test-php-style-fix: vendor-bin/owncloud-codestyle/vendor
+	$(PHP_CS_FIXER) fix -v --diff --diff-format udiff --allow-risky yes
+
 # watch out for changes and rebuild
 .PHONY: watch
 watch:
@@ -142,3 +153,9 @@ vendor: composer.lock
 
 vendor/bamarni/composer-bin-plugin: composer.lock
 	composer install
+
+vendor-bin/owncloud-codestyle/vendor: vendor/bamarni/composer-bin-plugin vendor-bin/owncloud-codestyle/composer.lock
+	composer bin owncloud-codestyle install --no-progress
+
+vendor-bin/owncloud-codestyle/composer.lock: vendor-bin/owncloud-codestyle/composer.json
+	@echo owncloud-codestyle composer.lock is not up to date.
