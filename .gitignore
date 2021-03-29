@@ -1,5 +1,10 @@
 build/
 
+# Composer
+vendor/
+vendor-bin/**/vendor
+vendor-bin/**/composer.lock
+
 # Tests - auto-generated files
 .phpunit.result.cache
 tests/output

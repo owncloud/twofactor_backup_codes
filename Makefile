@@ -71,6 +71,8 @@ endif
 .PHONY: clean
 clean:
 	rm -rf ./build
+	rm -rf vendor
+	rm -Rf vendor-bin/**/vendor vendor-bin/**/composer.lock
 
 # Same as clean but also removes dependencies installed by composer, bower and
 # npm
@@ -110,12 +112,12 @@ endif
 
 .PHONY: test-php-unit
 test-php-unit: ## Run php unit tests
-test-php-unit:
+test-php-unit: vendor
 	$(PHPUNIT) --configuration ./phpunit.xml --testsuite unit
 
 .PHONY: test-php-unit-dbg
 test-php-unit-dbg: ## Run php unit tests using phpdbg
-test-php-unit-dbg:
+test-php-unit-dbg: vendor
 	$(PHPUNITDBG) --configuration ./phpunit.xml --testsuite unit
 
 # watch out for changes and rebuild
@@ -127,3 +129,16 @@ endif
 ifneq (,$(wildcard $(CURDIR)/package.json))
 	$(npm) run watch
 endif
+
+#
+# Dependency management
+#--------------------------------------
+
+composer.lock: composer.json
+	@echo composer.lock is not up to date.
+
+vendor: composer.lock
+	composer install --no-dev
+
+vendor/bamarni/composer-bin-plugin: composer.lock
+	composer install
