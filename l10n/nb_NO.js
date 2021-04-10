@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Lag nye koder",
     "Backup Codes" : "Sikkerhetskoder",
     "Authenticate with a backup code" : "Autentisere med sikkerhetskode",
+    "Verify" : "Verifiser",
     "Second-factor backup codes" : "To factor sikkerhetskoder"
 },
 "nplurals=2; plural=(n != 1);");

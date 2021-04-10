@@ -7,6 +7,7 @@
     "Regenerate codes" : "Regénérer les codes",
     "Backup Codes" : "Codes de secours",
     "Authenticate with a backup code" : "S'authentifier avec un code de secours",
+    "Verify" : "Vérification",
     "Second-factor backup codes" : "Codes de secours pour la seconde étape"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

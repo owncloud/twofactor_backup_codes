@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Útbúa aftur kóða",
     "Backup Codes" : "Öryggisafritunarkóðar",
     "Authenticate with a backup code" : "Auðkenna með öryggisafritunarkóða",
+    "Verify" : "Sannreyna",
     "Second-factor backup codes" : "Tveggja-þrepa öryggisafritunarkóðar"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

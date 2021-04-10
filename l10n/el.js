@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Επαναδημιουργία κωδικών",
     "Backup Codes" : "Εφεδρικοί κωδικοί",
     "Authenticate with a backup code" : "Πιστοποίηση με εφεδρικό κωδικό",
+    "Verify" : "Επαλήθευση",
     "Second-factor backup codes" : "Δευτερεύοντες εφεδρικοί κωδικοί"
 },
 "nplurals=2; plural=(n != 1);");

@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "코드 다시 생성",
     "Backup Codes" : "백업 코드",
     "Authenticate with a backup code" : "백업 코드로 인증",
+    "Verify" : "확인",
     "Second-factor backup codes" : "2단계 인증 백업 코드"
 },
 "nplurals=1; plural=0;");

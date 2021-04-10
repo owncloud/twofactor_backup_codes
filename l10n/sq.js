@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "Hiqi kodet",
     "Backup Codes" : "Kode Kopjeruajtjesh",
     "Authenticate with a backup code" : "Kryej mirëfilltësim me një kod kopjeruajtjeje",
+    "Verify" : "Verifikoje",
     "Second-factor backup codes" : "Kode kopjeruajtjesh me faktor të dytë"
 },
 "nplurals=2; plural=(n != 1);");

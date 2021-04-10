@@ -7,6 +7,7 @@
     "Regenerate codes" : "Επαναδημιουργία κωδικών",
     "Backup Codes" : "Εφεδρικοί κωδικοί",
     "Authenticate with a backup code" : "Πιστοποίηση με εφεδρικό κωδικό",
+    "Verify" : "Επαλήθευση",
     "Second-factor backup codes" : "Δευτερεύοντες εφεδρικοί κωδικοί"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

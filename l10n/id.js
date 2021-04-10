@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Buat kode lagi",
     "Backup Codes" : "Kode cadangan",
     "Authenticate with a backup code" : "Otentikasi dengan kode cadangan",
+    "Verify" : "periksa kembali",
     "Second-factor backup codes" : "Kode cadangan faktor kedua"
 },
 "nplurals=1; plural=0;");

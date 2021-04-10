@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "移除代碼",
     "Backup Codes" : "備份代號",
     "Authenticate with a backup code" : "驗證與備份碼",
+    "Verify" : "驗證",
     "Second-factor backup codes" : "次要備份碼"
 },
 "nplurals=1; plural=0;");

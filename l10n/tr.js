@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "Kodları sil",
     "Backup Codes" : "Kurtarma Kodları",
     "Authenticate with a backup code" : "Bir kurtarma kodu ile kimlik doğrulaması yapın",
+    "Verify" : "Doğrula",
     "Second-factor backup codes" : "İkinci yöntem kurtarma kodları"
 },
 "nplurals=2; plural=(n > 1);");

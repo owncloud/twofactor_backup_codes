@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "ลบรหัส",
     "Backup Codes" : "รหัสสำรองข้อมูล",
     "Authenticate with a backup code" : "ตรวจสอบสิทธิ์ด้วยรหัสสำรอง",
+    "Verify" : "ยืนยัน",
     "Second-factor backup codes" : "รหัสสำรองที่สอง"
 },
 "nplurals=1; plural=0;");

@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "Codes entfernen",
     "Backup Codes" : "Sicherungscodes",
     "Authenticate with a backup code" : "Mit einem Sicherungscode authentisieren",
+    "Verify" : "Überprüfen",
     "Second-factor backup codes" : "Sicherungscodes für den zweiten Faktor"
 },
 "nplurals=2; plural=(n != 1);");

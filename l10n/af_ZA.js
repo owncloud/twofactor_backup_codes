@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Hergenereer kodes",
     "Backup Codes" : "Rugsteunkodes",
     "Authenticate with a backup code" : "Verifieer met ’n rugsteunkode",
+    "Verify" : "Verifieer",
     "Second-factor backup codes" : "Tweedefaktorrugsteunkodes"
 },
 "nplurals=2; plural=(n != 1);");

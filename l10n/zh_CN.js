@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "重新生成代码",
     "Backup Codes" : "备份码",
     "Authenticate with a backup code" : "使用备份码验证",
+    "Verify" : "验证",
     "Second-factor backup codes" : "使用第二种因素的备份码"
 },
 "nplurals=1; plural=0;");

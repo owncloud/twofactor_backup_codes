@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "إعادة توليد شفرات",
     "Backup Codes" : "رموز إحتياطية",
     "Authenticate with a backup code" : "مصادقة عبر رمز احتياطي",
+    "Verify" : "التحقق من الصحة",
     "Second-factor backup codes" : "عامل رموز احتياطية ثان"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");

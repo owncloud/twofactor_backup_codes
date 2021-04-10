@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "Regenerálja a kódokat",
     "Backup Codes" : "Biztonsági kódok",
     "Authenticate with a backup code" : "Hitelesítse a biztonsági kódot",
+    "Verify" : "Ellenőrzés",
     "Second-factor backup codes" : "Másodlagos biztonsági kódok"
 },
 "nplurals=2; plural=(n != 1);");

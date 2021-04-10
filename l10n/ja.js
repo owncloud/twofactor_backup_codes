@@ -9,6 +9,7 @@ OC.L10N.register(
     "Regenerate codes" : "コード再生成",
     "Backup Codes" : "コードをバックアップ",
     "Authenticate with a backup code" : "バックアップコードで認証する",
+    "Verify" : "確認",
     "Second-factor backup codes" : "2要素バックアップコード"
 },
 "nplurals=1; plural=0;");

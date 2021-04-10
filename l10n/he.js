@@ -10,6 +10,7 @@ OC.L10N.register(
     "Remove codes" : "הסרת קודים",
     "Backup Codes" : "קודי גיבוי",
     "Authenticate with a backup code" : "אימות על בסיס קוד גיבוי",
+    "Verify" : "אימות",
     "Second-factor backup codes" : "קודי גיבוי מסדר שני"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");
