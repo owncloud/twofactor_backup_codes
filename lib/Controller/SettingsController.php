@@ -27,59 +27,58 @@ use OCP\IUserSession;
 
 class SettingsController extends Controller {
 
-    /** @var IBackup */
-    private $backup;
+	/** @var IBackup */
+	private $backup;
 
-    /** @var IUserSession */
-    private $userSession;
+	/** @var IUserSession */
+	private $userSession;
 
-    /**
-     * @param string $appName
-     * @param IRequest $request
-     * @param IUserSession $userSession
-     * @param IBackup $backupCode
-     */
-    public function __construct($appName, IRequest $request, IUserSession $userSession, IBackup $backup) {
-        parent::__construct($appName, $request);
-        $this->userSession = $userSession;
-        $this->backup = $backup;
-    }
+	/**
+	 * @param string $appName
+	 * @param IRequest $request
+	 * @param IUserSession $userSession
+	 * @param IBackup $backupCode
+	 */
+	public function __construct($appName, IRequest $request, IUserSession $userSession, IBackup $backup) {
+		parent::__construct($appName, $request);
+		$this->userSession = $userSession;
+		$this->backup = $backup;
+	}
 
-    /**
-     * @NoAdminRequired
-     * @return array
-     */
-    public function state() {
-        $user = $this->userSession->getUser();
-        return [
-            'remaining' => $this->backup->getRemainingCodesCount($user),
-        ];
-    }
+	/**
+	 * @NoAdminRequired
+	 * @return array
+	 */
+	public function state() {
+		$user = $this->userSession->getUser();
+		return [
+			'remaining' => $this->backup->getRemainingCodesCount($user),
+		];
+	}
 
-    /**
-     * @NoAdminRequired
-     * @return array
-     */
-    public function generateBackupCodes() {
-        $user = $this->userSession->getUser();
-        $this->backup->deleteBackupCodesByUser($user);
-        $codes = $this->backup->generateBackupCodes($user);
-        return [
-            'remaining' => $this->backup->getRemainingCodesCount($user),
-            'codes' => $codes,
-        ];
-    }
+	/**
+	 * @NoAdminRequired
+	 * @return array
+	 */
+	public function generateBackupCodes() {
+		$user = $this->userSession->getUser();
+		$this->backup->deleteBackupCodesByUser($user);
+		$codes = $this->backup->generateBackupCodes($user);
+		return [
+			'remaining' => $this->backup->getRemainingCodesCount($user),
+			'codes' => $codes,
+		];
+	}
 
-    /**
-     * @NoAdminRequired
-     * @return array
-     */
-    public function removeBackupCodes() {
-        $user = $this->userSession->getUser();
-        $this->backup->deleteBackupCodesByUser($user);
-        return [
-            'remaining' => 0
-        ];
-    }
-
+	/**
+	 * @NoAdminRequired
+	 * @return array
+	 */
+	public function removeBackupCodes() {
+		$user = $this->userSession->getUser();
+		$this->backup->deleteBackupCodesByUser($user);
+		return [
+			'remaining' => 0
+		];
+	}
 }

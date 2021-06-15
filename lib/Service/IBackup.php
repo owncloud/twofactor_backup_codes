@@ -22,41 +22,40 @@ namespace OCA\TwoFactorBackupCodes\Service;
 
 use OCP\IUser;
 
-interface IBackup{
+interface IBackup {
 
-    /**
-     * @param IUser $user
-     * @return array of newly generated backup codes
-     */
-    public function generateBackupCodes(IUser $user);
+	/**
+	 * @param IUser $user
+	 * @return array of newly generated backup codes
+	 */
+	public function generateBackupCodes(IUser $user);
 
-    /**
-     * @param IUser $user
-     */
-    public function deleteBackupCodesByUser(IUser $user);
+	/**
+	 * @param IUser $user
+	 */
+	public function deleteBackupCodesByUser(IUser $user);
 
-    /**
-     * @param IUser $user
-     * @param string $code
-     */
-    public function deleteBackupCode(IUser $user, $code);
+	/**
+	 * @param IUser $user
+	 * @param string $code
+	 */
+	public function deleteBackupCode(IUser $user, $code);
 
-    /**
-     * @param IUser $user
-     * @return bool
-     */
-    public function hasBackupCode(IUser $user);
+	/**
+	 * @param IUser $user
+	 * @return bool
+	 */
+	public function hasBackupCode(IUser $user);
 
-    /**
-     * @param IUser $user
-     * @return integer
-     */
-    public function getRemainingCodesCount(IUser $user);
+	/**
+	 * @param IUser $user
+	 * @return integer
+	 */
+	public function getRemainingCodesCount(IUser $user);
 
-    /**
-     * @param IUser $user
-     * @param string $code
-     */
-    public function validateBackupCode(IUser $user, $code);
-
+	/**
+	 * @param IUser $user
+	 * @param string $code
+	 */
+	public function validateBackupCode(IUser $user, $code);
 }

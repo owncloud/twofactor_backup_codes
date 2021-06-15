@@ -26,74 +26,75 @@ use OCP\IRequest;
 use OCP\IUser;
 use OCP\IUserSession;
 use Test\TestCase;
+
 class SettingsControllerTest extends TestCase {
-    /** @var IRequest|PHPUnit_Framework_MockObject_MockObject */
-    private $request;
-    /** @var Backup|PHPUnit_Framework_MockObject_MockObject */
-    private $backup;
-    /** @var IUserSession|PHPUnit_Framework_MockObject_MockObject */
-    private $userSession;
-    /** @var SettingsController */
-    private $controller;
-    protected function setUp(): void {
-        parent::setUp();
-        $this->request = $this->getMockBuilder(IRequest::class)->getMock();
-        $this->backup = $this->getMockBuilder(Backup::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->userSession = $this->getMockBuilder(IUserSession::class)->getMock();
-        $this->controller = new SettingsController('twofactor_backup_codes', $this->request, $this->userSession, $this->backup);
-    }
-    public function testState() {
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $this->userSession->expects($this->once())
-            ->method('getUser')
-            ->will($this->returnValue($user));
-        $this->backup->expects($this->once())
-            ->method('getRemainingCodesCount')
-            ->will($this->returnValue(2));
+	/** @var IRequest|PHPUnit_Framework_MockObject_MockObject */
+	private $request;
+	/** @var Backup|PHPUnit_Framework_MockObject_MockObject */
+	private $backup;
+	/** @var IUserSession|PHPUnit_Framework_MockObject_MockObject */
+	private $userSession;
+	/** @var SettingsController */
+	private $controller;
+	protected function setUp(): void {
+		parent::setUp();
+		$this->request = $this->getMockBuilder(IRequest::class)->getMock();
+		$this->backup = $this->getMockBuilder(Backup::class)
+			->disableOriginalConstructor()
+			->getMock();
+		$this->userSession = $this->getMockBuilder(IUserSession::class)->getMock();
+		$this->controller = new SettingsController('twofactor_backup_codes', $this->request, $this->userSession, $this->backup);
+	}
+	public function testState() {
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$this->userSession->expects($this->once())
+			->method('getUser')
+			->will($this->returnValue($user));
+		$this->backup->expects($this->once())
+			->method('getRemainingCodesCount')
+			->will($this->returnValue(2));
 
-        $expected = [
-            'remaining' => 2,
-        ];
-        $this->assertEquals($expected, $this->controller->state());
-    }
+		$expected = [
+			'remaining' => 2,
+		];
+		$this->assertEquals($expected, $this->controller->state());
+	}
 
-    public function testGenerateBackupCodes() {
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $codes = ['code1', 'code2'];
-        $this->userSession->expects($this->once())
-            ->method('getUser')
-            ->will($this->returnValue($user));
-        $this->backup->expects($this->once())
-            ->method('deleteBackupCodesByUser')
-            ->with($user);
-        $this->backup->expects($this->once())
-            ->method('generateBackupCodes')
-            ->with($user)
-            ->will($this->returnValue($codes));
-        $this->backup->expects($this->once())
-            ->method('getRemainingCodesCount')
-            ->with($user)
-            ->will($this->returnValue(2));
-        $expected = [
-            'remaining' => 2,
-            'codes' => $codes,
-        ];
-        $this->assertEquals($expected, $this->controller->generateBackupCodes());
-    }
+	public function testGenerateBackupCodes() {
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$codes = ['code1', 'code2'];
+		$this->userSession->expects($this->once())
+			->method('getUser')
+			->will($this->returnValue($user));
+		$this->backup->expects($this->once())
+			->method('deleteBackupCodesByUser')
+			->with($user);
+		$this->backup->expects($this->once())
+			->method('generateBackupCodes')
+			->with($user)
+			->will($this->returnValue($codes));
+		$this->backup->expects($this->once())
+			->method('getRemainingCodesCount')
+			->with($user)
+			->will($this->returnValue(2));
+		$expected = [
+			'remaining' => 2,
+			'codes' => $codes,
+		];
+		$this->assertEquals($expected, $this->controller->generateBackupCodes());
+	}
 
-    public function testRemoveBackupCodes() {
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $this->userSession->expects($this->once())
-            ->method('getUser')
-            ->will($this->returnValue($user));
-        $this->backup->expects($this->once())
-            ->method('deleteBackupCodesByUser')
-            ->with($user);
-        $expected = [
-            'remaining' => 0
-        ];
-        $this->assertEquals($expected, $this->controller->removeBackupCodes());
-    }
+	public function testRemoveBackupCodes() {
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$this->userSession->expects($this->once())
+			->method('getUser')
+			->will($this->returnValue($user));
+		$this->backup->expects($this->once())
+			->method('deleteBackupCodesByUser')
+			->with($user);
+		$expected = [
+			'remaining' => 0
+		];
+		$this->assertEquals($expected, $this->controller->removeBackupCodes());
+	}
 }
