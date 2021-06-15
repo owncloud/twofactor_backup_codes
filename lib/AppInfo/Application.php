@@ -23,15 +23,13 @@ namespace OCA\TwoFactorBackupCodes\AppInfo;
 use OCP\AppFramework\App;
 
 class Application extends App {
+	public function __construct($urlParams = []) {
+		parent::__construct('twofactor_backup_codes', $urlParams);
 
-    public function __construct($urlParams = []) {
-        parent::__construct('twofactor_backup_codes', $urlParams);
-
-        /**
-         * Controllers
-         */
-        $container = $this->getContainer();
-        $container->registerAlias('OCA\TwoFactorBackupCodes\Service\IBackup', 'OCA\TwoFactorBackupCodes\Service\Backup');
-    }
-
+		/**
+		 * Controllers
+		 */
+		$container = $this->getContainer();
+		$container->registerAlias('OCA\TwoFactorBackupCodes\Service\IBackup', 'OCA\TwoFactorBackupCodes\Service\Backup');
+	}
 }

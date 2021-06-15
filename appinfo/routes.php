@@ -19,21 +19,21 @@
  *
  */
 return [
-    'routes' => [
-        [
-            'name' => 'settings#state',
-            'url' => '/settings/state',
-            'verb' => 'GET'
-        ],
-        [
-            'name' => 'settings#generateBackupCodes',
-            'url' => '/settings/generateBackupCodes',
-            'verb' => 'POST'
-        ],
-        [
-            'name' => 'settings#removeBackupCodes',
-            'url' => '/settings/removeBackupCodes',
-            'verb' => 'DELETE'
-        ],
-    ]
+	'routes' => [
+		[
+			'name' => 'settings#state',
+			'url' => '/settings/state',
+			'verb' => 'GET'
+		],
+		[
+			'name' => 'settings#generateBackupCodes',
+			'url' => '/settings/generateBackupCodes',
+			'verb' => 'POST'
+		],
+		[
+			'name' => 'settings#removeBackupCodes',
+			'url' => '/settings/removeBackupCodes',
+			'verb' => 'DELETE'
+		],
+	]
 ];

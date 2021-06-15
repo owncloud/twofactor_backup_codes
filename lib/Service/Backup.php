@@ -28,84 +28,82 @@ use OCP\IUser;
 use OCP\Security\ISecureRandom;
 
 class Backup implements IBackup {
+	private static $CODE_LENGTH = 8;
 
-    private static $CODE_LENGTH = 8;
+	/** @var BackupCodeMapper */
+	private $backupCodeMapper;
 
-    /** @var BackupCodeMapper */
-    private $backupCodeMapper;
+	/** @var ISecureRandom */
+	private $random;
 
-    /** @var ISecureRandom */
-    private $random;
+	public function __construct(BackupCodeMapper $backupCodeMapper, ISecureRandom $random) {
+		$this->backupCodeMapper = $backupCodeMapper;
+		$this->random = $random;
+	}
 
-    public function __construct(BackupCodeMapper $backupCodeMapper,  ISecureRandom $random) {
-        $this->backupCodeMapper = $backupCodeMapper;
-        $this->random = $random;
-    }
+	public function generateBackupCodes(IUser $user, $number = 8) {
+		$backupCodes = [];
+		while (\count($backupCodes) < $number) {
+			$code = $this->random->generate(self::$CODE_LENGTH, ISecureRandom::CHAR_UPPER . ISecureRandom::CHAR_DIGITS);
+			if (\in_array($code, $backupCodes) === false) {
+				$dbBackupCode = new BackupCode();
+				$dbBackupCode->setUserId($user->getUID());
+				$dbBackupCode->setCode($code);
+				$this->backupCodeMapper->insert($dbBackupCode);
+				array_push($backupCodes, $code);
+			}
+		}
+		return $backupCodes;
+	}
 
-    public function generateBackupCodes(IUser $user, $number = 8) {
-        $backupCodes = array();
-        while (count($backupCodes) < $number) {
-            $code = $this->random->generate(self::$CODE_LENGTH, ISecureRandom::CHAR_UPPER . ISecureRandom::CHAR_DIGITS);
-            if (in_array($code, $backupCodes) === false) {
-                $dbBackupCode = new BackupCode();
-                $dbBackupCode->setUserId($user->getUID());
-                $dbBackupCode->setCode($code);
-                $this->backupCodeMapper->insert($dbBackupCode);
-                array_push($backupCodes, $code);
-            }
-        }
-        return $backupCodes;
-    }
-
-    /**
-     * @param IUser $user
-     * @param string $code
-     */
-    public function deleteBackupCode(IUser $user, $code) {
-        try {
-            $dbBackupCode = $this->backupCodeMapper->getBackupCode($user, $code);
-            $this->backupCodeMapper->delete($dbBackupCode);
-        } catch (DoesNotExistException $ex) {
+	/**
+	 * @param IUser $user
+	 * @param string $code
+	 */
+	public function deleteBackupCode(IUser $user, $code) {
+		try {
+			$dbBackupCode = $this->backupCodeMapper->getBackupCode($user, $code);
+			$this->backupCodeMapper->delete($dbBackupCode);
+		} catch (DoesNotExistException $ex) {
 			// It is OK to delete a backup code that does not exist
-        }
-    }
+		}
+	}
 
-    /**
-     * @param IUser $user
-     * @param string $code
-     */
-    public function deleteBackupCodesByUser(IUser $user) {
-        $this->backupCodeMapper->deleteBackupCodes($user);
-    }
+	/**
+	 * @param IUser $user
+	 * @param string $code
+	 */
+	public function deleteBackupCodesByUser(IUser $user) {
+		$this->backupCodeMapper->deleteBackupCodes($user);
+	}
 
-    /**
-     * @param IUser $user
-     * @return bool
-     */
-    public function hasBackupCode(IUser $user) {
-        return count($this->backupCodeMapper->getBackupCodes($user)) > 0;
-    }
+	/**
+	 * @param IUser $user
+	 * @return bool
+	 */
+	public function hasBackupCode(IUser $user) {
+		return \count($this->backupCodeMapper->getBackupCodes($user)) > 0;
+	}
 
-    /**
-     * @param IUser $user
-     * @return integer
-     */
-    public function getRemainingCodesCount(IUser $user) {
-        return count($this->backupCodeMapper->getBackupCodes($user));
-    }
+	/**
+	 * @param IUser $user
+	 * @return integer
+	 */
+	public function getRemainingCodesCount(IUser $user) {
+		return \count($this->backupCodeMapper->getBackupCodes($user));
+	}
 
-    /**
-     * @param IUser $user
-     * @param string $code
-     */
-    public function validateBackupCode(IUser $user, $code) {
-        try {
-            $dbBackupCode = $this->backupCodeMapper->getBackupCode($user, $code);
-            $this->backupCodeMapper->delete($dbBackupCode);
-            return true;
-        } catch (DoesNotExistException $ex) {
-            return false;
-        }
-    }
-
+	/**
+	 * @param IUser $user
+	 * @param string $code
+	 */
+	public function validateBackupCode(IUser $user, $code) {
+		try {
+			$dbBackupCode = $this->backupCodeMapper->getBackupCode($user, $code);
+			$this->backupCodeMapper->delete($dbBackupCode);
+			return true;
+		} catch (DoesNotExistException $ex) {
+			return false;
+		}
+	}
 }

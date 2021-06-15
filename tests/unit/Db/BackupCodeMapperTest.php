@@ -24,77 +24,78 @@ use OCA\TwoFactorBackupCodes\Db\BackupCodeMapper;
 use OCP\IDBConnection;
 use OCP\IUser;
 use Test\TestCase;
+
 /**
  * @group DB
  */
 class BackupCodeMapperTest extends TestCase {
-    /** @var IDBConnection */
-    private $db;
-    /** @var BackupCodeMapper */
-    private $mapper;
-    /** @var string */
-    private $testUID = 'test1';
-    private function resetDB() {
-        $qb = $this->db->getQueryBuilder();
-        $qb->delete($this->mapper->getTableName())
-            ->where($qb->expr()->eq('user_id', $qb->createNamedParameter($this->testUID)));
-        $qb->execute();
-    }
+	/** @var IDBConnection */
+	private $db;
+	/** @var BackupCodeMapper */
+	private $mapper;
+	/** @var string */
+	private $testUID = 'test1';
+	private function resetDB() {
+		$qb = $this->db->getQueryBuilder();
+		$qb->delete($this->mapper->getTableName())
+			->where($qb->expr()->eq('user_id', $qb->createNamedParameter($this->testUID)));
+		$qb->execute();
+	}
 
-    private function createTestCodeEntry($uid, $code) {
-        $dbCode = new BackupCode();
-        $dbCode->setUserId($uid);
-        $dbCode->setCode($code);
-        $dbEntity = $this->mapper->insert($dbCode);
-        $dbCode->setId($dbEntity->getId());
-        $this->assertEquals($dbCode, $dbEntity);
-        return $dbEntity;
-    }
+	private function createTestCodeEntry($uid, $code) {
+		$dbCode = new BackupCode();
+		$dbCode->setUserId($uid);
+		$dbCode->setCode($code);
+		$dbEntity = $this->mapper->insert($dbCode);
+		$dbCode->setId($dbEntity->getId());
+		$this->assertEquals($dbCode, $dbEntity);
+		return $dbEntity;
+	}
 
-    protected function setUp(): void {
-        parent::setUp();
-        $this->db = \OC::$server->getDatabaseConnection();
-        $this->mapper = \OC::$server->query(BackupCodeMapper::class);
-        $this->resetDB();
-    }
-    protected function tearDown(): void {
-        parent::tearDown();
-        $this->resetDB();
-    }
+	protected function setUp(): void {
+		parent::setUp();
+		$this->db = \OC::$server->getDatabaseConnection();
+		$this->mapper = \OC::$server->query(BackupCodeMapper::class);
+		$this->resetDB();
+	}
+	protected function tearDown(): void {
+		parent::tearDown();
+		$this->resetDB();
+	}
 
-    public function testGetBackupCode() {
-        $entity1 = $this->createTestCodeEntry($this->testUID, '1');
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $user->expects($this->once())
-            ->method('getUID')
-            ->will($this->returnValue($this->testUID));
-        $dbCode = $this->mapper->getBackupCode($user, '1');
-        $this->assertInstanceOf(BackupCode::class, $dbCode);
-        $this->assertEquals($entity1->getId(), $dbCode->getId());
-    }
+	public function testGetBackupCode() {
+		$entity1 = $this->createTestCodeEntry($this->testUID, '1');
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$user->expects($this->once())
+			->method('getUID')
+			->will($this->returnValue($this->testUID));
+		$dbCode = $this->mapper->getBackupCode($user, '1');
+		$this->assertInstanceOf(BackupCode::class, $dbCode);
+		$this->assertEquals($entity1->getId(), $dbCode->getId());
+	}
 
-    public function testGetBackupCodes() {
-        $entity1 = $this->createTestCodeEntry($this->testUID, '1');
-        $entity2 = $this->createTestCodeEntry($this->testUID, '2');
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $user->expects($this->once())
-            ->method('getUID')
-            ->will($this->returnValue($this->testUID));
-        $dbCodes = $this->mapper->getBackupCodes($user);
-        $this->assertCount(2, $dbCodes);
-        $this->assertInstanceOf(BackupCode::class, $dbCodes[0]);
-        $this->assertInstanceOf(BackupCode::class, $dbCodes[1]);
-        $this->assertEquals($entity1->getId(), $dbCodes[0]->getId());
-        $this->assertEquals($entity2->getId(), $dbCodes[1]->getId());
-    }
-    public function testDeleteCodes() {
-        $this->createTestCodeEntry($this->testUID, '1');
-        $user = $this->getMockBuilder(IUser::class)->getMock();
-        $user->expects($this->any())
-            ->method('getUID')
-            ->will($this->returnValue($this->testUID));
-        $this->assertCount(1, $this->mapper->getBackupCodes($user));
-        $this->mapper->deleteBackupCodes($user);
-        $this->assertCount(0, $this->mapper->getBackupCodes($user));
-    }
+	public function testGetBackupCodes() {
+		$entity1 = $this->createTestCodeEntry($this->testUID, '1');
+		$entity2 = $this->createTestCodeEntry($this->testUID, '2');
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$user->expects($this->once())
+			->method('getUID')
+			->will($this->returnValue($this->testUID));
+		$dbCodes = $this->mapper->getBackupCodes($user);
+		$this->assertCount(2, $dbCodes);
+		$this->assertInstanceOf(BackupCode::class, $dbCodes[0]);
+		$this->assertInstanceOf(BackupCode::class, $dbCodes[1]);
+		$this->assertEquals($entity1->getId(), $dbCodes[0]->getId());
+		$this->assertEquals($entity2->getId(), $dbCodes[1]->getId());
+	}
+	public function testDeleteCodes() {
+		$this->createTestCodeEntry($this->testUID, '1');
+		$user = $this->getMockBuilder(IUser::class)->getMock();
+		$user->expects($this->any())
+			->method('getUID')
+			->will($this->returnValue($this->testUID));
+		$this->assertCount(1, $this->mapper->getBackupCodes($user));
+		$this->mapper->deleteBackupCodes($user);
+		$this->assertCount(0, $this->mapper->getBackupCodes($user));
+	}
 }

@@ -31,10 +31,9 @@ use OCP\AppFramework\Db\Entity;
  */
 class BackupCode extends Entity {
 
-    /** @var string */
-    protected $userId;
+	/** @var string */
+	protected $userId;
 
-    /** @var string */
-    protected $code;
-
+	/** @var string */
+	protected $code;
 }
