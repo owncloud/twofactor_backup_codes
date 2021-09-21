@@ -7,6 +7,7 @@ OC.L10N.register(
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "Διατηρήστε τους κάπου προσβάσιμους, όπως το πορτοφόλι σας. Κάθε κωδικός μπορεί να χρησιμοποιηθεί μόνο μία φορά.",
     "You have {{remaining}} backup codes left can be used." : "Σας έχουν απομείνει {{remaining}} εφεδρικοί κωδικοί για χρήση.",
     "Regenerate codes" : "Επαναδημιουργία κωδικών",
+    "Remove codes" : "Αφαίρεση κωδικών",
     "Backup Codes" : "Εφεδρικοί κωδικοί",
     "Authenticate with a backup code" : "Πιστοποίηση με εφεδρικό κωδικό",
     "Verify" : "Επαλήθευση",
