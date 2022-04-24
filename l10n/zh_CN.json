@@ -5,6 +5,7 @@
     "Keep them somewhere accessible, like your wallet. Each code can be used only once." : "将它们保存在其他位置，例如您的钱包中。每个备份码仅可用一次。",
     "You have {{remaining}} backup codes left can be used." : "您尚有 {{remaining}} 备份码可用。",
     "Regenerate codes" : "重新生成代码",
+    "Remove codes" : "删除代码",
     "Backup Codes" : "备份码",
     "Authenticate with a backup code" : "使用备份码验证",
     "Verify" : "验证",
