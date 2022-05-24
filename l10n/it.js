@@ -12,4 +12,4 @@ OC.L10N.register(
     "Verify" : "Verifica",
     "Second-factor backup codes" : "Codice di backup come secondo fattore"
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
