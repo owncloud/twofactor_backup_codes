@@ -13,3 +13,5 @@ tests/output
 
 # SonarCloud scanner
 .scannerwork
+
+.idea
