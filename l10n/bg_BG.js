@@ -10,7 +10,7 @@ OC.L10N.register(
     "Remove codes" : "Премахване на кодове",
     "Backup Codes" : "Резервни кодове",
     "Authenticate with a backup code" : "Удостоверяване с резервен код",
-    "Verify" : "Потвърди",
+    "Verify" : "Проверка",
     "Second-factor backup codes" : "Втори-фактор резервни кодове"
 },
 "nplurals=2; plural=(n != 1);");
