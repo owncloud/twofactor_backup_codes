@@ -46,7 +46,14 @@ config = {
         "master",
     ],
     "codestyle": False,
-    "phan": False,
+    "phan": {
+        "multipleVersions": {
+            "phpVersions": [
+                DEFAULT_PHP_VERSION,
+                "7.3",
+            ],
+        },
+    },
     "phpstan": False,
     "javascript": False,
     "phpunit": True,

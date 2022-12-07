@@ -113,6 +113,7 @@ class BackupProvider implements IProvider {
 				return $appId !== 'twofactor_backup_codes';
 			});
 			foreach ($appIds as $appId) {
+				/* @phan-suppress-next-line PhanAccessMethodInternal */
 				$info = $this->appManager->getAppInfo($appId);
 				if (isset($info['two-factor-providers']) && \count($info['two-factor-providers']) > 0) {
 					return true;

@@ -23,6 +23,7 @@ namespace OCA\TwoFactorBackupCodes\Db;
 
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\Mapper;
+/* @phan-suppress-next-line PhanUnreferencedUseNormal */
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IDb;
 use OCP\IUser;
@@ -48,7 +49,9 @@ class BackupCodeMapper extends Mapper {
 			->andWhere($qb->expr()->eq('code', $qb->createNamedParameter($code)));
 		$result = $qb->execute();
 
+		/* @phan-suppress-next-line PhanDeprecatedFunction */
 		$row = $result->fetch();
+		/* @phan-suppress-next-line PhanDeprecatedFunction */
 		$result->closeCursor();
 		if ($row === false) {
 			throw new DoesNotExistException('Backup code does not exist');
@@ -67,7 +70,9 @@ class BackupCodeMapper extends Mapper {
 			->from('twofactor_backup_codes')
 			->where($qb->expr()->eq('user_id', $qb->createNamedParameter($user->getUID())));
 		$result = $qb->execute();
+		/* @phan-suppress-next-line PhanDeprecatedFunction */
 		$rows = $result->fetchAll();
+		/* @phan-suppress-next-line PhanDeprecatedFunction */
 		$result->closeCursor();
 		return array_map(function ($row) {
 			return BackupCode::fromRow($row);
