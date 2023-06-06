@@ -23,7 +23,6 @@ namespace OCA\TwoFactorBackupCodes\Service;
 use OCP\IUser;
 
 interface IBackup {
-
 	/**
 	 * @param IUser $user
 	 * @return array of newly generated backup codes

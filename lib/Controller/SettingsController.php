@@ -26,7 +26,6 @@ use OCP\IRequest;
 use OCP\IUserSession;
 
 class SettingsController extends Controller {
-
 	/** @var IBackup */
 	private $backup;
 
