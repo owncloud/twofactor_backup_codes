@@ -30,7 +30,6 @@ use OCP\AppFramework\Db\Entity;
  * @method void setCode(string $code)
  */
 class BackupCode extends Entity {
-
 	/** @var string */
 	protected $userId;
 

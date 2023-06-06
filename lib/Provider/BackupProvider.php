@@ -28,7 +28,6 @@ use OCP\IUser;
 use OCP\Template;
 
 class BackupProvider implements IProvider {
-
 	/** @var string */
 	private $appName;
 
