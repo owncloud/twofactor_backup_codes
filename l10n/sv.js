@@ -5,8 +5,10 @@ OC.L10N.register(
     "Generate codes" : "Generera koder",
     "You have {{remaining}} backup codes left can be used." : "Du har {{remaining}} reservkoder kvar som kan användas.",
     "Regenerate codes" : "Generera nya koder",
+    "Remove codes" : "Ta bort koder",
     "Backup Codes" : "Reservkoder",
     "Authenticate with a backup code" : "Autentisera med en reservkod",
+    "Verify" : "Verifiera",
     "Second-factor backup codes" : "Reservkoder för tvåfaktorsautentisering"
 },
 "nplurals=2; plural=(n != 1);");
