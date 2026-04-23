@@ -50,9 +50,10 @@ class BackupCodeMapper extends Mapper {
 		$result = $qb->execute();
 
 		/* @phan-suppress-next-line PhanDeprecatedFunction */
-		$row = $result->fetch();
+		$row = $result->fetchAssociative();
 		/* @phan-suppress-next-line PhanDeprecatedFunction */
-		$result->closeCursor();
+		$result->free();
+
 		if ($row === false) {
 			throw new DoesNotExistException('Backup code does not exist');
 		}
@@ -71,9 +72,9 @@ class BackupCodeMapper extends Mapper {
 			->where($qb->expr()->eq('user_id', $qb->createNamedParameter($user->getUID())));
 		$result = $qb->execute();
 		/* @phan-suppress-next-line PhanDeprecatedFunction */
-		$rows = $result->fetchAll();
+		$rows = $result->fetchAllAssociative();
 		/* @phan-suppress-next-line PhanDeprecatedFunction */
-		$result->closeCursor();
+		$result->free();
 		return array_map(function ($row) {
 			return BackupCode::fromRow($row);
 		}, $rows);
