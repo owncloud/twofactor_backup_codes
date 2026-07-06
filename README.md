@@ -1,3 +1,6 @@
+> **⚠️ This repository is archived and no longer maintained.**
+> It is read-only and will not receive further updates or contributions.
+
 # Two Factor Backup Codes
 [![Build Status](https://travis-ci.org/owncloud/twofactor_backup_codes.svg?branch=master)](https://travis-ci.org/owncloud/twofactor_backup_codes)
 
